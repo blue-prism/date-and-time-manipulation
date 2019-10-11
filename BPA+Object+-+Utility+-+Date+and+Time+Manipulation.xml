@@ -1,0 +1,1492 @@
+﻿<process name="Utility - Date and Time Manipulation" version="6.4.2.10610" bpversion="6.5.0.12573" narrative="Utility functions for manipulating dates and times." byrefcollection="true" type="object" runmode="Background" preferredid="92564613-f444-48c5-8ff7-abb4f7ea7548">
+  <appdef>
+    <element name="Application Root">
+      <id>b30f5d67-5c3c-49c9-8f9b-66d573097498</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="9a74af4c-280a-4e30-bdbb-21295b6256ca" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>42</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="6516a093-7eae-4d9c-b6e4-f1cfd6ed5668" type="Normal" published="True">
+    <name>Format Date</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="3faad3c6-8a21-4d44-9df6-4c69213d552f" type="Normal" published="True">
+    <name>DateAdd</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>-6</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="a15c8b3f-df2f-4461-a42c-41f5afdbf123" type="Normal" published="True">
+    <name>Get Time of Day</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="d92822f9-e820-40af-98f7-53accd5a8b1d" type="Normal" published="True">
+    <name>Get Last Working Day</name>
+    <view>
+      <camerax>-6</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="44144695-c6e6-4781-80a7-cbda94215737" type="Normal" published="True">
+    <name>Get Maximum TimeSpan</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>-36</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="2593a374-b6d7-4604-9663-f29713768d5e" type="Normal" published="True">
+    <name>UTC To Local</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="cd37e9f9-3117-4a15-915b-2244c21cde9a" type="Normal" published="True">
+    <name>Local To UTC</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="beb9635e-b787-4e2e-ae55-7eccc9fb8e14" type="Normal" published="True">
+    <name>Get Time Zones</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="8c3d3a23-6712-4bb6-a303-fe23aa33a0f4" type="Normal" published="True">
+    <name>Get Unix Time Seconds From DateTime</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="bdda5887-fa82-4a94-b3ba-be3baafbf3e9" type="Normal" published="True">
+    <name>Get DateTime From Unix Time Seconds</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="d8c547cc-60d0-459b-876f-90bf696a5757" name="Start" type="Start">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>807e7d33-91e2-4241-a85e-ea0718fc487d</onsuccess>
+  </stage>
+  <stage stageid="807e7d33-91e2-4241-a85e-ea0718fc487d" name="End" type="End">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="1a8c9ebd-54e1-442f-a6c7-e87df3b59232" name="Stage1" type="ProcessInfo">
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <references>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>System.Data</import>
+      <import>System.IO</import>
+      <import>System.XML</import>
+      <import>System.Diagnostics</import>
+      <import>Microsoft.VisualBasic</import>
+      <import>System.Data</import>
+      <import>system.text.regularexpressions</import>
+    </imports>
+    <language>visualbasic</language>
+    <globalcode><![CDATA[
+]]></globalcode>
+    <code><![CDATA[Public Function GetDataTable(ByVal ColumnNamesCSV As String, ByVal ColumnTypesCSV As String) As DataTable
+
+	Dim objTable As DataTable
+	Dim objColumn As DataColumn
+	Dim aColumnNames As String() = ColumnNamesCSV.Split(",")
+	Dim aColumnTypes As String() = ColumnTypesCSV.Split(",")
+
+	Try
+		objTable = New DataTable
+		For i As Integer = 0 To aColumnNames.Length - 1
+			objColumn = New DataColumn 
+			objColumn.DataType = System.Type.GetType(aColumnTypes(i).Trim)
+			objColumn.ColumnName = aColumnNames(i).Trim
+			objTable.Columns.Add(objColumn)
+		Next
+		
+	Catch e As Exception
+		objTable = nothing	
+	End Try
+
+	Return objTable
+
+End Function
+
+]]></code>
+  </stage>
+  <stage stageid="0bf7814a-647b-4bcb-b6a6-3d24dfd5b736" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>9a74af4c-280a-4e30-bdbb-21295b6256ca</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="0c56e2f8-68ce-48a3-97ad-81e1f076e9ce" name="new" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <displayx>-180</displayx>
+    <displayy>60</displayy>
+    <displaywidth>180</displaywidth>
+    <displayheight>230</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="2cc85317-9c46-427c-b966-cb7abb1454c6" name="Format Date" type="SubSheetInfo">
+    <subsheetid>6516a093-7eae-4d9c-b6e4-f1cfd6ed5668</subsheetid>
+    <narrative>Formats a date according to the given format string.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="4c3fe2ef-c631-4aae-bbd4-c5008db9045c" name="Start" type="Start">
+    <subsheetid>6516a093-7eae-4d9c-b6e4-f1cfd6ed5668</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="None." />
+    </preconditions>
+    <postconditions>
+      <condition narrative="The date will be formatted." />
+    </postconditions>
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="datetime" name="Date Time" narrative="The Date to format" stage="Date Time" />
+      <input type="text" name="Format" narrative="The format template text" stage="Format" />
+    </inputs>
+    <onsuccess>ec339a00-b716-496d-a202-d126d86d3b82</onsuccess>
+  </stage>
+  <stage stageid="77a0cce8-1a21-4165-9a0f-adf9fec90d5c" name="End" type="End">
+    <subsheetid>6516a093-7eae-4d9c-b6e4-f1cfd6ed5668</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="text" name="Formatted Date" narrative="The formatted date as text." stage="Formatted Date" />
+    </outputs>
+  </stage>
+  <stage stageid="cf5e7769-db59-4bb7-8253-e366e619c115" name="Date Time" type="Data">
+    <subsheetid>6516a093-7eae-4d9c-b6e4-f1cfd6ed5668</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>datetime</datatype>
+    <initialvalue>2009-03-16 07:40:48Z</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ec339a00-b716-496d-a202-d126d86d3b82" name="Format Date" type="Code">
+    <subsheetid>6516a093-7eae-4d9c-b6e4-f1cfd6ed5668</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="datetime" name="Date Time" expr="[Date Time]" />
+      <input type="text" name="Formatting" expr="[Format]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Formatted Date" stage="Formatted Date" />
+    </outputs>
+    <onsuccess>77a0cce8-1a21-4165-9a0f-adf9fec90d5c</onsuccess>
+    <code><![CDATA[try
+
+Formatted_Date = Format(Date_Time, Formatting)
+
+catch e as exception
+end try]]></code>
+  </stage>
+  <stage stageid="a7c1c56b-526f-42cb-8f9c-fd85e0dc4358" name="Formatted Date" type="Data">
+    <subsheetid>6516a093-7eae-4d9c-b6e4-f1cfd6ed5668</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>45</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="1d34679f-edb9-47df-8413-eb6529085bea" name="Format" type="Data">
+    <subsheetid>6516a093-7eae-4d9c-b6e4-f1cfd6ed5668</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>15</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">yyyy-MM-dd hh:mm:ss</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="2271a79e-27e5-4434-b5be-146e02946317" name="new" type="Note">
+    <subsheetid>9a74af4c-280a-4e30-bdbb-21295b6256ca</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <displayx>-180</displayx>
+    <displayy>60</displayy>
+    <displaywidth>180</displaywidth>
+    <displayheight>230</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="36451c72-b274-4817-a153-beb1e8a6e76a" name="Start" type="Start">
+    <subsheetid>9a74af4c-280a-4e30-bdbb-21295b6256ca</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>30</displayx>
+    <displayy>-120</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>9a8c4505-8606-4a0c-b118-09a6b9932b3b</onsuccess>
+  </stage>
+  <stage stageid="9a8c4505-8606-4a0c-b118-09a6b9932b3b" name="End" type="End">
+    <subsheetid>9a74af4c-280a-4e30-bdbb-21295b6256ca</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>30</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="55239e62-5f23-4636-b00f-3f92c2dd2b57" name="DateAdd" type="SubSheetInfo">
+    <subsheetid>3faad3c6-8a21-4d44-9df6-4c69213d552f</subsheetid>
+    <narrative>Adds a specified number of hours minutes or seconds to the given date.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="dbfbfb9d-819d-4766-b61d-23f72fdc3eac" name="Start" type="Start">
+    <subsheetid>3faad3c6-8a21-4d44-9df6-4c69213d552f</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="None." />
+    </preconditions>
+    <postconditions>
+      <condition narrative="The date will have the specified quantity added to it." />
+    </postconditions>
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="datetime" name="DateTime" narrative="The date to which to add Hours Minutes or Seconds" stage="DateTime" />
+      <input type="number" name="Hours" narrative="OPTIONAL: The number of hours to add" stage="Hours" />
+      <input type="number" name="Minutes" narrative="OPTIONAL: The number of minutes to add" stage="Minutes" />
+      <input type="number" name="Seconds" narrative="OPTIONAL: The number of seconds to add" stage="Seconds" />
+    </inputs>
+    <onsuccess>e9d3896b-765f-4351-99f6-d0c611db1d0f</onsuccess>
+  </stage>
+  <stage stageid="837296b5-d951-45d5-9a71-15d6adb842af" name="End" type="End">
+    <subsheetid>3faad3c6-8a21-4d44-9df6-4c69213d552f</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="datetime" name="Result" narrative="The date with the number of hours minutes or seconds added to it" stage="Result DateTime" />
+    </outputs>
+  </stage>
+  <stage stageid="e3a0af02-a848-4ea8-8995-8aa784761a7a" name="Hours" type="Data">
+    <subsheetid>3faad3c6-8a21-4d44-9df6-4c69213d552f</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>0</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="cb09e128-7238-4da3-9961-ae76391bf4fa" name="Minutes" type="Data">
+    <subsheetid>3faad3c6-8a21-4d44-9df6-4c69213d552f</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>30</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ef1f06cf-1992-4ffb-8340-f7c18a441aa9" name="Seconds" type="Data">
+    <subsheetid>3faad3c6-8a21-4d44-9df6-4c69213d552f</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>60</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b61357e2-8f6e-4e65-9981-95950bb33f23" name="DateTime" type="Data">
+    <subsheetid>3faad3c6-8a21-4d44-9df6-4c69213d552f</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>datetime</datatype>
+    <initialvalue>2009-06-11 05:50:18Z</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="e9d3896b-765f-4351-99f6-d0c611db1d0f" name="DateAdd1" type="Code">
+    <subsheetid>3faad3c6-8a21-4d44-9df6-4c69213d552f</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="datetime" name="d" expr="[DateTime]" />
+      <input type="number" name="h" expr="[Hours]" />
+      <input type="number" name="m" expr="[Minutes]" />
+      <input type="number" name="s" expr="[Seconds]" />
+    </inputs>
+    <outputs>
+      <output type="datetime" name="Result" stage="Result DateTime" />
+    </outputs>
+    <onsuccess>837296b5-d951-45d5-9a71-15d6adb842af</onsuccess>
+    <code><![CDATA[
+
+Result = d.AddHours(h).AddMinutes(m).AddSeconds(s)]]></code>
+  </stage>
+  <stage stageid="2335b3c0-55db-4269-94ed-200e9fcc07e9" name="Result DateTime" type="Data">
+    <subsheetid>3faad3c6-8a21-4d44-9df6-4c69213d552f</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>datetime</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="22cedbad-f117-4ee4-bd71-2a5f6c220cb6" name="Get Time of Day" type="SubSheetInfo">
+    <subsheetid>a15c8b3f-df2f-4461-a42c-41f5afdbf123</subsheetid>
+    <narrative>Gets the current time of day as a timespan, as reported by the operating system.
+
+Use UTC - if true, the current time will be expressed in UTC. Otherwise, it is expressed in the local time, as configured in the operating system. This will include daylight saving adjustments.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="53fc2493-6fda-4782-8934-42e13b047e5c" name="End" type="End">
+    <subsheetid>a15c8b3f-df2f-4461-a42c-41f5afdbf123</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>135</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="timespan" name="Time of Day" narrative="The time of day as a timespan" stage="Time of Day" />
+    </outputs>
+  </stage>
+  <stage stageid="19b73e7b-2913-41ec-9c1d-36c19f8de2fa" name="Get Time of Day" type="Code">
+    <subsheetid>a15c8b3f-df2f-4461-a42c-41f5afdbf123</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>135</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="flag" name="Use UTC" expr="[Use UTC]" />
+    </inputs>
+    <outputs>
+      <output type="timespan" name="Time of Day" stage="Time of Day" />
+    </outputs>
+    <onsuccess>53fc2493-6fda-4782-8934-42e13b047e5c</onsuccess>
+    <code><![CDATA[Dim RightNow as DateTime = DateTime.Now
+If Use_UTC Then
+   RightNow = DateTime.UTCNow
+End If
+
+Time_of_Day = RightNow.Subtract(DateTime.Today)]]></code>
+  </stage>
+  <stage stageid="a091940e-6fdc-44cf-9d55-e516d14fa0c5" name="Time of Day" type="Data">
+    <subsheetid>a15c8b3f-df2f-4461-a42c-41f5afdbf123</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>240</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>timespan</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b543f1fa-0821-4bbf-a15a-90deeea26246" name="Start" type="Start">
+    <subsheetid>a15c8b3f-df2f-4461-a42c-41f5afdbf123</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="None." />
+    </preconditions>
+    <postconditions>
+      <condition narrative="The current time of day will have been calculated." />
+    </postconditions>
+    <narrative>
+    </narrative>
+    <displayx>135</displayx>
+    <displayy>-135</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="flag" name="Use UTC" narrative="Set True if the time its required as Universal Time Coordinated" stage="Use UTC" />
+    </inputs>
+    <onsuccess>19b73e7b-2913-41ec-9c1d-36c19f8de2fa</onsuccess>
+  </stage>
+  <stage stageid="4625da5f-2d4f-49a4-b134-a51c2425c157" name="Use UTC" type="Data">
+    <subsheetid>a15c8b3f-df2f-4461-a42c-41f5afdbf123</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>210</displayx>
+    <displayy>-135</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="63c99096-e244-4194-bce2-c13b3d3baed0" name="Get Last Working Day" type="SubSheetInfo">
+    <subsheetid>d92822f9-e820-40af-98f7-53accd5a8b1d</subsheetid>
+    <narrative>Gets the last weekday of the given month and year. If no month/year is given, the current month and year is used. If either of the parameters is given then both must be given.
+The value returned is the date (ie. the day in the month) of the last weekday in the given month. A return value of -1 indicates an error - that month OR year has been given but not both.</narrative>
+    <displayx>-180</displayx>
+    <displayy>-135</displayy>
+    <displaywidth>240</displaywidth>
+    <displayheight>120</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="3c50b663-acf3-4122-8e8b-ead4802ee437" name="Start" type="Start">
+    <subsheetid>d92822f9-e820-40af-98f7-53accd5a8b1d</subsheetid>
+    <loginhibit />
+    <narrative>Gets the last working day of the given month / year.
+Currently synonymous with getting the last *week* day of the given month year, though bank holiday support might arrive one day.</narrative>
+    <displayx>15</displayx>
+    <displayy>-135</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="number" name="Month" narrative="The month of the year" stage="Month" />
+      <input type="number" name="Year" narrative="The year." stage="Year" />
+    </inputs>
+    <onsuccess>35e0a5d0-e3da-4255-a20d-6d45de202a6f</onsuccess>
+  </stage>
+  <stage stageid="b9d57b5c-797b-4592-83e4-7a24ca15c1a6" name="End" type="End">
+    <subsheetid>d92822f9-e820-40af-98f7-53accd5a8b1d</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="number" name="Working Day" narrative="The last working day of the month" stage="Working Day" />
+    </outputs>
+  </stage>
+  <stage stageid="098af183-1667-4b2f-8deb-1cc0620b95b2" name="Year" type="Data">
+    <subsheetid>d92822f9-e820-40af-98f7-53accd5a8b1d</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-315</displayx>
+    <displayy>30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f413fe16-e03f-4b67-b2bd-b49592366e3e" name="Month" type="Data">
+    <subsheetid>d92822f9-e820-40af-98f7-53accd5a8b1d</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-315</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="92fbace1-d10b-433c-8fed-fe1c26dbc518" name="Working Day" type="Data">
+    <subsheetid>d92822f9-e820-40af-98f7-53accd5a8b1d</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="e625be80-4bab-4171-a32d-4016e936a412" name="GetLastWorkingDay" type="Code">
+    <subsheetid>d92822f9-e820-40af-98f7-53accd5a8b1d</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>45</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="number" name="Month" expr="[Month]" />
+      <input type="number" name="Year" expr="[Year]" />
+    </inputs>
+    <outputs>
+      <output type="number" name="Day" stage="Working Day" />
+    </outputs>
+    <onsuccess>b9d57b5c-797b-4592-83e4-7a24ca15c1a6</onsuccess>
+    <code><![CDATA[Day = DateTime.DaysInMonth(Year, Month)
+Dim dt as New DateTime(Year, Month, Day)
+While True
+	Select Case dt.DayOfWeek
+		Case DayOfWeek.Saturday,DayOfWeek.Sunday
+			Day -= 1
+			dt = New DateTime(Year, Month, Day)
+		Case Else
+			Return
+	End Select
+End While]]></code>
+  </stage>
+  <stage stageid="35e0a5d0-e3da-4255-a20d-6d45de202a6f" name="Month &amp; Year Empty?" type="Decision">
+    <subsheetid>d92822f9-e820-40af-98f7-53accd5a8b1d</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-90</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <decision expression="[Month] = 0 AND [Year] = 0" />
+    <ontrue>b8ca2a17-7daf-4166-ba91-14ded7cce776</ontrue>
+    <onfalse>11958d80-d666-4466-a27e-977163030022</onfalse>
+  </stage>
+  <stage stageid="b8ca2a17-7daf-4166-ba91-14ded7cce776" name="Get Month of Today" type="Calculation">
+    <subsheetid>d92822f9-e820-40af-98f7-53accd5a8b1d</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>105</displayx>
+    <displayy>-90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>aa7dcdfd-36c3-455e-ac32-d688f1ab4db8</onsuccess>
+    <calculation expression="FormatDate(Today(), &quot;MM&quot;)" stage="Month" />
+  </stage>
+  <stage stageid="aa7dcdfd-36c3-455e-ac32-d688f1ab4db8" name="Get Year of Today" type="Calculation">
+    <subsheetid>d92822f9-e820-40af-98f7-53accd5a8b1d</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>180</displayx>
+    <displayy>-90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>9cc58b0b-db3f-482e-95d9-ffa1380515ec</onsuccess>
+    <calculation expression="FormatDate(Today(), &quot;yyyy&quot;)" stage="Year" />
+  </stage>
+  <stage stageid="9cc58b0b-db3f-482e-95d9-ffa1380515ec" name="anchor1" type="Anchor">
+    <subsheetid>d92822f9-e820-40af-98f7-53accd5a8b1d</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>180</displayx>
+    <displayy>0</displayy>
+    <displaywidth>10</displaywidth>
+    <displayheight>10</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>6de1714a-92eb-4cd0-bef1-dbe4598f6b20</onsuccess>
+  </stage>
+  <stage stageid="6de1714a-92eb-4cd0-bef1-dbe4598f6b20" name="anchor2" type="Anchor">
+    <subsheetid>d92822f9-e820-40af-98f7-53accd5a8b1d</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>0</displayy>
+    <displaywidth>10</displaywidth>
+    <displayheight>10</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>e625be80-4bab-4171-a32d-4016e936a412</onsuccess>
+  </stage>
+  <stage stageid="11958d80-d666-4466-a27e-977163030022" name="Month OR Year Empty?" type="Decision">
+    <subsheetid>d92822f9-e820-40af-98f7-53accd5a8b1d</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <decision expression="[Month] = 0 OR [Year] = 0" />
+    <ontrue>61e4a055-8b98-4332-84e7-844b0b1f2b30</ontrue>
+    <onfalse>6de1714a-92eb-4cd0-bef1-dbe4598f6b20</onfalse>
+  </stage>
+  <stage stageid="61e4a055-8b98-4332-84e7-844b0b1f2b30" name="Error: Return -1" type="Calculation">
+    <subsheetid>d92822f9-e820-40af-98f7-53accd5a8b1d</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-75</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>55503d4b-dd2f-46a4-abf7-6b68b3f11c4e</onsuccess>
+    <calculation expression="-1" stage="Working Day" />
+  </stage>
+  <stage stageid="55503d4b-dd2f-46a4-abf7-6b68b3f11c4e" name="End" type="End">
+    <subsheetid>d92822f9-e820-40af-98f7-53accd5a8b1d</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-150</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="number" name="Working Day" narrative="The last working day of the month" stage="Working Day" />
+    </outputs>
+  </stage>
+  <stage stageid="717a0494-c064-4882-b1fe-774df9a21423" name="Get Maximum TimeSpan" type="SubSheetInfo">
+    <subsheetid>44144695-c6e6-4781-80a7-cbda94215737</subsheetid>
+    <narrative>Gets the maximum timespan from a collection of timespan values</narrative>
+    <displayx>-195</displayx>
+    <displayy>-150</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="3e99ca05-4f18-45c4-98cc-91ebfc8cf4f0" name="Start" type="Start">
+    <subsheetid>44144695-c6e6-4781-80a7-cbda94215737</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="None." />
+    </preconditions>
+    <postconditions>
+      <condition narrative="The maximum timespan will be found." />
+    </postconditions>
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="collection" name="Timespan Values" narrative="A collection of timespan values" stage="Timespan Values" />
+    </inputs>
+    <onsuccess>b63b3567-309e-47ca-a1da-b12798e2cde0</onsuccess>
+  </stage>
+  <stage stageid="64485ded-6777-4852-a8cc-f866a980e3c0" name="End" type="End">
+    <subsheetid>44144695-c6e6-4781-80a7-cbda94215737</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>180</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="timespan" name="Maximum Timespan Value" narrative="The maximum of all of the timespan values supplied" stage="Maximum Timespan Value" />
+    </outputs>
+  </stage>
+  <stage stageid="51491768-b683-4c5b-a150-f03943247d70" name="Timespan Values" type="Collection">
+    <subsheetid>44144695-c6e6-4781-80a7-cbda94215737</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>135</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Timespan Value" type="timespan" />
+    </collectioninfo>
+  </stage>
+  <stage stageid="1d879bc2-5cd1-4e25-8d37-c157e1133cf0" name="Minimum Timespan Value" type="Data">
+    <subsheetid>44144695-c6e6-4781-80a7-cbda94215737</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-210</displayx>
+    <displayy>-75</displayy>
+    <displaywidth>180</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>timespan</datatype>
+    <initialvalue>0.00:00:00</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b63b3567-309e-47ca-a1da-b12798e2cde0" name="Start with Minimum" type="Calculation">
+    <subsheetid>44144695-c6e6-4781-80a7-cbda94215737</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>78ab136e-f028-4c03-a776-9124fda261ad</onsuccess>
+    <calculation expression="[Minimum Timespan Value]" stage="Maximum Timespan Value" />
+  </stage>
+  <stage stageid="9c67b24d-115a-481f-9054-ca7d6fa0408a" name="Maximum Timespan Value" type="Data">
+    <subsheetid>44144695-c6e6-4781-80a7-cbda94215737</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>150</displayx>
+    <displayy>180</displayy>
+    <displaywidth>180</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>timespan</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="78ab136e-f028-4c03-a776-9124fda261ad" name="For Each Value" type="LoopStart">
+    <subsheetid>44144695-c6e6-4781-80a7-cbda94215737</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>598192e8-9ae7-4965-bd01-e661d68c1641</onsuccess>
+    <groupid>d78a55e4-d0ac-477c-b254-c21b2197d767</groupid>
+    <looptype>ForEach</looptype>
+    <loopdata>Timespan Values</loopdata>
+  </stage>
+  <stage stageid="11f34648-502a-4ea2-899f-4425d7c62d92" name="Next" type="LoopEnd">
+    <subsheetid>44144695-c6e6-4781-80a7-cbda94215737</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>64485ded-6777-4852-a8cc-f866a980e3c0</onsuccess>
+    <groupid>d78a55e4-d0ac-477c-b254-c21b2197d767</groupid>
+  </stage>
+  <stage stageid="598192e8-9ae7-4965-bd01-e661d68c1641" name="Bigger?" type="Decision">
+    <subsheetid>44144695-c6e6-4781-80a7-cbda94215737</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>60</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <decision expression="[Timespan Values.Timespan Value] &gt; [Maximum Timespan Value]" />
+    <ontrue>5f08997c-0bb6-453f-ad1a-3326ca40e854</ontrue>
+    <onfalse>11f34648-502a-4ea2-899f-4425d7c62d92</onfalse>
+  </stage>
+  <stage stageid="5f08997c-0bb6-453f-ad1a-3326ca40e854" name="Assign As Maximum" type="Calculation">
+    <subsheetid>44144695-c6e6-4781-80a7-cbda94215737</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>105</displayx>
+    <displayy>60</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>7504cba9-325e-45b9-ab65-e382e7e6806c</onsuccess>
+    <calculation expression="[Timespan Values.Timespan Value]" stage="Maximum Timespan Value" />
+  </stage>
+  <stage stageid="7504cba9-325e-45b9-ab65-e382e7e6806c" name="anchor3" type="Anchor">
+    <subsheetid>44144695-c6e6-4781-80a7-cbda94215737</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>105</displayx>
+    <displayy>105</displayy>
+    <displaywidth>10</displaywidth>
+    <displayheight>10</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>11f34648-502a-4ea2-899f-4425d7c62d92</onsuccess>
+  </stage>
+  <stage stageid="2a516836-bff3-4b78-bdc4-330df04901d0" name="UTC To Local" type="SubSheetInfo">
+    <subsheetid>2593a374-b6d7-4604-9663-f29713768d5e</subsheetid>
+    <narrative>Convert a UTC datetime to a local datetime. This will default to the current system's local time zone, unless a Time Zone ID input is specified. You can get a collection of the current system's available Time Zone ID values by running the "Get Time Zones" action.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>120</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="0de534a1-d6e1-46ef-aa12-98fa3fa68a77" name="Start" type="Start">
+    <subsheetid>2593a374-b6d7-4604-9663-f29713768d5e</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="datetime" name="UTC" narrative="The UTC datetime to convert" stage="UTC" />
+      <input type="text" name="Time Zone ID" narrative="The ID of the timezone to use; Empty means to use the time zone on the executing environment" stage="Time Zone ID" />
+    </inputs>
+    <onsuccess>aee7adc4-1cbc-4041-8419-8baaf28efbd2</onsuccess>
+  </stage>
+  <stage stageid="e8f43b71-727a-4d71-b2c3-8328d54d619a" name="End" type="End">
+    <subsheetid>2593a374-b6d7-4604-9663-f29713768d5e</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="datetime" name="local" narrative="The converted datetime" stage="local" />
+    </outputs>
+  </stage>
+  <stage stageid="3222f3ee-169b-4360-bff5-f61770be52c8" name="Local To UTC" type="SubSheetInfo">
+    <subsheetid>cd37e9f9-3117-4a15-915b-2244c21cde9a</subsheetid>
+    <narrative>Convert a local datetime to a UTC datetime. The local datetime will default to the current system's local time zone, unless a Time Zone ID input is specified. You can get a collection of the current system's available Time Zone ID values by running the "Get Time Zones" action.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>120</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="8a24056a-bd55-42d4-912e-00817495beb0" name="Start" type="Start">
+    <subsheetid>cd37e9f9-3117-4a15-915b-2244c21cde9a</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="datetime" name="local" narrative="The local datetime to convert" stage="local" />
+      <input type="text" name="Time Zone ID" narrative="The ID of the timezone to use; Empty means to use the time zone on the executing environment" stage="Time Zone ID" />
+    </inputs>
+    <onsuccess>4c971a75-78df-40c8-a504-a01823ccbc30</onsuccess>
+  </stage>
+  <stage stageid="5003b4bf-c249-4844-b10e-e6eadd217a7a" name="End" type="End">
+    <subsheetid>cd37e9f9-3117-4a15-915b-2244c21cde9a</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="datetime" name="UTC" narrative="The converted datetime" stage="UTC" />
+    </outputs>
+  </stage>
+  <stage stageid="aee7adc4-1cbc-4041-8419-8baaf28efbd2" name="UTC To Local" type="Code">
+    <subsheetid>2593a374-b6d7-4604-9663-f29713768d5e</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="datetime" name="UTC" expr="[UTC]" />
+      <input type="text" name="Time Zone ID" expr="[Time Zone ID]" />
+    </inputs>
+    <outputs>
+      <output type="datetime" name="local" stage="local" />
+    </outputs>
+    <onsuccess>e8f43b71-727a-4d71-b2c3-8328d54d619a</onsuccess>
+    <code><![CDATA[Dim utcDateTime = DateTime.SpecifyKind(UTC, DateTimeKind.Utc)
+Dim tz As TimeZoneInfo
+If Time_Zone_ID <> "" Then
+	tz = TimeZoneInfo.FindSystemTimeZoneById(Time_Zone_ID)
+	local = TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, tz)
+Else
+	local = utcDateTime.ToLocalTime()
+End If
+
+' BP converts local dates back to UTC for its
+' internal representation; so we have to convince it that
+' this is UTC already so it doesn't convert it further.
+local = DateTime.SpecifyKind(local, DateTimeKind.UTC)
+
+
+
+]]></code>
+  </stage>
+  <stage stageid="4c971a75-78df-40c8-a504-a01823ccbc30" name="Local To UTC" type="Code">
+    <subsheetid>cd37e9f9-3117-4a15-915b-2244c21cde9a</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="datetime" name="local" expr="[local]" />
+      <input type="text" name="Time Zone ID" expr="[Time Zone ID]" />
+    </inputs>
+    <outputs>
+      <output type="datetime" name="UTC" stage="UTC" />
+    </outputs>
+    <onsuccess>5003b4bf-c249-4844-b10e-e6eadd217a7a</onsuccess>
+    <code><![CDATA[Dim unspecTime As DateTime = DateTime.SpecifyKind(local, DateTimeKind.Unspecified)
+Dim localTime As DateTime = DateTime.SpecifyKind(local, DateTimeKind.Local)
+
+If Time_Zone_ID <> "" Then
+	Dim tz = TimeZoneInfo.FindSystemTimeZoneById(Time_Zone_ID)
+	UTC = TimeZoneInfo.ConvertTimeToUtc(unspecTime, tz)
+Else
+	UTC = localTime.ToUniversalTime()
+End If]]></code>
+  </stage>
+  <stage stageid="2e384e01-3462-4407-9d4a-bb84e69fec5b" name="Get Time Zones" type="SubSheetInfo">
+    <subsheetid>beb9635e-b787-4e2e-ae55-7eccc9fb8e14</subsheetid>
+    <narrative>Returns a collection of all the time zones IDs that are available on the local system. These values can be used for the Time Zone ID input in the "UTC To Local" and "Local To UTC" actions.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="e07ebc8a-6c21-451a-9694-23a299cfeabb" name="Start" type="Start">
+    <subsheetid>beb9635e-b787-4e2e-ae55-7eccc9fb8e14</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>35c9217e-be33-4598-be0f-8af78e1acd9d</onsuccess>
+  </stage>
+  <stage stageid="9f86a6cb-2466-4f71-9137-6e5dc0cfc917" name="End" type="End">
+    <subsheetid>beb9635e-b787-4e2e-ae55-7eccc9fb8e14</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="collection" name="Time Zones" narrative="Collection of current system Time Zone IDs" stage="Time Zones" />
+    </outputs>
+  </stage>
+  <stage stageid="35c9217e-be33-4598-be0f-8af78e1acd9d" name="Get Time Zones" type="Code">
+    <subsheetid>beb9635e-b787-4e2e-ae55-7eccc9fb8e14</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="collection" name="Time Zones" stage="Time Zones" />
+    </outputs>
+    <onsuccess>9f86a6cb-2466-4f71-9137-6e5dc0cfc917</onsuccess>
+    <code><![CDATA[If Not Time_Zones.Columns.Contains("ID") Then _
+	Time_Zones.Columns.Add("ID", GetType(System.String))  
+For Each tz As TimeZoneInfo In TimeZoneInfo.GetSystemTimeZones()
+ 	Dim row As DataRow = Time_Zones.NewRow()
+	row("ID") = tz.ID
+	Time_Zones.Rows.Add(row)
+Next
+]]></code>
+  </stage>
+  <stage stageid="4663cb62-3121-4cba-863e-4fbd4f05d1fd" name="Time Zones" type="Collection">
+    <subsheetid>beb9635e-b787-4e2e-ae55-7eccc9fb8e14</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="6c46c221-a69d-4f6c-84ca-23d88f61af59" name="UTC" type="Data">
+    <subsheetid>cd37e9f9-3117-4a15-915b-2244c21cde9a</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>135</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>datetime</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="6d9cfc61-5fb4-4473-871b-02a064756b1c" name="local" type="Data">
+    <subsheetid>cd37e9f9-3117-4a15-915b-2244c21cde9a</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>150</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>datetime</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="62e5b5a2-36dd-4466-a99f-45686667b65a" name="local" type="Data">
+    <subsheetid>2593a374-b6d7-4604-9663-f29713768d5e</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>135</displayx>
+    <displayy>90</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>datetime</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="790a957b-4380-4207-b33d-26fded288a74" name="UTC" type="Data">
+    <subsheetid>2593a374-b6d7-4604-9663-f29713768d5e</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>135</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>datetime</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="084a7c0c-3275-48c7-ad67-c771e3defbf1" name="Time Zone ID" type="Data">
+    <subsheetid>2593a374-b6d7-4604-9663-f29713768d5e</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>210</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="8d168372-af57-473e-9a1c-bc7f1e05c5c7" name="Time Zone ID" type="Data">
+    <subsheetid>cd37e9f9-3117-4a15-915b-2244c21cde9a</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>225</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a88c33d0-88e9-408f-8f0e-a348eb7ef6e7" name="Get Unix Time Seconds From DateTime" type="SubSheetInfo">
+    <subsheetid>8c3d3a23-6712-4bb6-a303-fe23aa33a0f4</subsheetid>
+    <narrative>Returns the number of seconds that have elapsed since 1970-01-01T00:00:00Z.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="10b213d8-e8d9-45a6-bafc-0f7a2c27ea53" name="Start" type="Start">
+    <subsheetid>8c3d3a23-6712-4bb6-a303-fe23aa33a0f4</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-15</displayx>
+    <displayy>-135</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="datetime" name="DateTime" narrative="DateTime value to convert to Unix time seconds" stage="DateTime" />
+    </inputs>
+    <onsuccess>c1115d06-17cd-4f47-bd6e-c0ca07e29d8d</onsuccess>
+  </stage>
+  <stage stageid="bce8003d-da2a-4c3b-9951-900c5be32944" name="End" type="End">
+    <subsheetid>8c3d3a23-6712-4bb6-a303-fe23aa33a0f4</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-15</displayx>
+    <displayy>0</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="number" name="UnixTimeSeconds" narrative="Result of conversion from datetime to unix time seconds." stage="UnixTimeSeconds" />
+    </outputs>
+  </stage>
+  <stage stageid="c1115d06-17cd-4f47-bd6e-c0ca07e29d8d" name="Convert to Unix Time Seconds" type="Code">
+    <subsheetid>8c3d3a23-6712-4bb6-a303-fe23aa33a0f4</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-15</displayx>
+    <displayy>-75</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="datetime" name="dateTimeToConvert" expr="[DateTime]" />
+    </inputs>
+    <outputs>
+      <output type="number" name="unixTime" stage="UnixTimeSeconds" />
+    </outputs>
+    <onsuccess>bce8003d-da2a-4c3b-9951-900c5be32944</onsuccess>
+    <code><![CDATA[Dim dto as new DateTimeOffset(dateTimeToConvert)
+unixTime = dto.ToUnixTimeSeconds()]]></code>
+  </stage>
+  <stage stageid="03e75a2c-b7eb-47fa-9193-b36f9dd1f97f" name="DateTime" type="Data">
+    <subsheetid>8c3d3a23-6712-4bb6-a303-fe23aa33a0f4</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>datetime</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d8594bcb-259b-4de1-b63e-6deb178e30b0" name="UnixTimeSeconds" type="Data">
+    <subsheetid>8c3d3a23-6712-4bb6-a303-fe23aa33a0f4</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>60</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="8c306ba9-5b77-479b-890b-2b7674c1bc58" name="Input Data Items" type="Block">
+    <subsheetid>8c3d3a23-6712-4bb6-a303-fe23aa33a0f4</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="FFCC00" />
+  </stage>
+  <stage stageid="1d1a4c79-e10b-4272-a14b-e6d077100432" name="Output Data Items" type="Block">
+    <subsheetid>8c3d3a23-6712-4bb6-a303-fe23aa33a0f4</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>30</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="800000" />
+  </stage>
+  <stage stageid="dd7b2f94-1044-4874-90b8-d2e59895b45b" name="Get DateTime From Unix Time Seconds" type="SubSheetInfo">
+    <subsheetid>bdda5887-fa82-4a94-b3ba-be3baafbf3e9</subsheetid>
+    <narrative>Returns the DateTime representation of the number of seconds that have elapsed since 1970-01-01T00:00:00Z.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="0e9eeb01-3791-447a-bb9a-1e9b2f4c1e3d" name="Start" type="Start">
+    <subsheetid>bdda5887-fa82-4a94-b3ba-be3baafbf3e9</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-15</displayx>
+    <displayy>-135</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="number" name="UnixTimeSeconds" narrative="The Unix time seconds value to convert to a DateTime" stage="UnixTimeSeconds" />
+    </inputs>
+    <onsuccess>c4300b49-a4c3-4aea-8d97-882ae78115df</onsuccess>
+  </stage>
+  <stage stageid="cb0230fd-17b4-49a4-94e8-8ccc001b70b3" name="End" type="End">
+    <subsheetid>bdda5887-fa82-4a94-b3ba-be3baafbf3e9</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-15</displayx>
+    <displayy>0</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="datetime" name="DateTime" narrative="Result of conversion from unix time seconds to a datetime." stage="DateTime" />
+    </outputs>
+  </stage>
+  <stage stageid="c4300b49-a4c3-4aea-8d97-882ae78115df" name="Convert to DateTime" type="Code">
+    <subsheetid>bdda5887-fa82-4a94-b3ba-be3baafbf3e9</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-15</displayx>
+    <displayy>-75</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="number" name="unixTime" expr="[UnixTimeSeconds]" />
+    </inputs>
+    <outputs>
+      <output type="datetime" name="dateTimeResult" stage="DateTime" />
+    </outputs>
+    <onsuccess>cb0230fd-17b4-49a4-94e8-8ccc001b70b3</onsuccess>
+    <code><![CDATA[Dim dtDateTime As New DateTime(1970,1,1,0,0,0,0,System.DateTimeKind.Utc)
+dateTimeResult = dtDateTime.AddSeconds(unixTime).ToLocalTime()]]></code>
+  </stage>
+  <stage stageid="d3b73442-bd6a-48ba-9fc0-a167c259f390" name="DateTime" type="Data">
+    <subsheetid>bdda5887-fa82-4a94-b3ba-be3baafbf3e9</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>60</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>datetime</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="2def5302-7b8f-421c-88e7-b5b43f43ca59" name="UnixTimeSeconds" type="Data">
+    <subsheetid>bdda5887-fa82-4a94-b3ba-be3baafbf3e9</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="150fbff6-909e-4515-b7b7-353ffbb091c4" name="Input Data Items" type="Block">
+    <subsheetid>bdda5887-fa82-4a94-b3ba-be3baafbf3e9</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="FFCC00" />
+  </stage>
+  <stage stageid="92f863e7-346a-4a1b-b572-206367134d6e" name="Output Data Items" type="Block">
+    <subsheetid>bdda5887-fa82-4a94-b3ba-be3baafbf3e9</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>30</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="800000" />
+  </stage>
+</process>
