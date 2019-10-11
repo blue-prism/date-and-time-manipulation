@@ -1,4 +1,4 @@
-# Date & Time Manipulation Blue Prism
+# Date & Time Manipulation
 This utility provides serveral functions for manipulating dates and times within an automation
 
 ## About
